@@ -7,7 +7,7 @@ View:
       children:
         # widget displaying a text
         - Text:
-            text: Welcome r@button.label.clickMe
+            text: Welcome
 
         # reference a reusable widget defined in resources.ensemble
         - MyCustomWidget1:
