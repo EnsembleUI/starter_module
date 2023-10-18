@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:ensemble/ensemble_app.dart';
 import 'package:ensemble/framework/error_handling.dart';
 import 'package:ensemble/framework/widget/error_screen.dart';
+import 'package:ensemble/host_platform_manager.dart';
 import 'package:ensemble/page_model.dart';
 import 'package:flutter/material.dart';
 import 'package:starter_module/generated/ensemble_modules.dart';
@@ -13,6 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   initErrorHandler();
   EnsembleModules().init();
+  HostPlatformManager().init();
   runApp(const EnsembleApp());
 }
 
