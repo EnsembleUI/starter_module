@@ -1,15 +1,57 @@
 View:
+  header:
+    title: Ensemble View - Root
   styles:
     useSafeArea: true
   body:
-    # show 2 widgets vertically
     Column:
+      styles:
+        gap: 20
+        crossAxis: center
+        mainAxis: center
       children:
-        # widget displaying a text
         - Text:
-            text: Welcome
+            text: Ensemble View - Root
 
         # reference a reusable widget defined in resources.ensemble
         - MyCustomWidget1:
             inputs:
               name: Peter Parker
+
+        - Divider:
+
+        - Button:
+            styles: { borderRadius: 8 }
+            label: SendDataToHost - CallExternalMethod
+            onTap:
+              callExternalMethod:
+                name: sendDataToSwiftUI
+                # payload: { "title2": "Ensemble Yaml" }
+                onComplete: |
+                  //@code
+                  console.log("Method called successfully");
+                onError: |
+                  //@code
+                  console.log("Failed to call a method" + event.error);
+
+        - Button:
+            styles: { borderRadius: 8 }
+            label: SwiftUI - Profile Screen
+            onTap:
+              navigateExternalScreen:
+                name: "ProfileScreen"
+                inputs: { "name": "Profile View Data" }
+
+        - Button:
+            styles: { borderRadius: 8 }
+            label: SwiftUI - Setting Screen
+            onTap:
+              navigateExternalScreen:
+                name: "SettingsScreen"
+                inputs: { "name": "Setting View Data" }
+
+        - Button:
+            styles: { borderRadius: 8 }
+            label: BackToSwift
+            onTap:
+              navigateBack:
