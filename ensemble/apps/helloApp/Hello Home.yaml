@@ -1,11 +1,15 @@
 View:
+  header:
+    title: Ensemble View
   styles:
     useSafeArea: true
   body:
-    # show 2 widgets vertically
     Column:
+      styles:
+        gap: 20
+        crossAxis: center
+        mainAxis: center
       children:
-        # widget displaying a text
         - Text:
             text: Welcome
 
@@ -13,3 +17,34 @@ View:
         - MyCustomWidget1:
             inputs:
               name: Peter Parker
+
+        - Divider:
+
+        - Button:
+            styles: { borderRadius: 8 }
+            label: SendDataToHost
+            onTap: |
+              //@code
+              console.log("SendDataToHost button tapped");
+
+        - Button:
+            styles: { borderRadius: 8 }
+            label: NavigateExternalScreen - Profile
+            onTap:
+              navigateExternalScreen:
+                name: "ProfileScreen"
+                inputs: { "name": "Profile View Data" }
+
+        - Button:
+            styles: { borderRadius: 8 }
+            label: NavigateExternalScreen - Setting
+            onTap:
+              navigateExternalScreen:
+                name: "SettingsScreen"
+                inputs: { "name": "Setting View Data" }
+
+        - Button:
+            styles: { borderRadius: 8 }
+            label: BackToSwift
+            onTap:
+              navigateBack:
